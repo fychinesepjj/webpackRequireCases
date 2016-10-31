@@ -1,0 +1,8 @@
+{
+    "__COMP__": "component",
+    "__MEDIA__": "media",
+    "__CSS__": "__MEDIA__/css",
+    "__JS__": "__MEDIA__/js",
+    "__IMG__": "__MEDIA__/image",
+    "template": "__JS__/template.js"
+}
