@@ -1,4 +1,6 @@
 $(function () {
-    var html = require('__COMP__/header/header');
-    $('#main').html(html);
+    var headerStr = require('__COMP__/header/header');
+    $('#header').html(headerStr);
+    var footerStr = require('__COMP__/footer/footer');
+    $('#header').html(footerStr);
 });

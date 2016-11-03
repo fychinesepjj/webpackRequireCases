@@ -26,7 +26,7 @@ var makeEntries = function (extra){
     entryFiles.forEach(function(filePath) {
         var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'));
         map[filename] = filePath;
-    })
+    });
 
     return map;
 };
@@ -54,17 +54,17 @@ module.exports = function(options) {
             var conf = {
                 template: 'html!' + filePath,
                 filename: filename + '.html'
-            }
+            };
 
             if(filename in entries) {
                 conf.inject = 'body';
                 conf.chunks = ['vendor', filename];
             }
 
-            r.push(new HtmlWebpackPlugin(conf))
+            r.push(new HtmlWebpackPlugin(conf));
         });
 
-        return r
+        return r;
     }();
 
     if(debug) {
@@ -85,19 +85,19 @@ module.exports = function(options) {
                 // @see https://github.com/webpack/extract-text-webpack-plugin
                 allChunks: false
             })
-        )
+        );
 
         plugins.push(new UglifyJsPlugin({
             mangle: {
                 except: ['$', 'exports', 'require', 'jQuery', 'Promise']
             },
             compress: { 
-                //warnings: false
+                // warnings: false
             },
             output: {
                 comments: false
             }
-            //sourceMap: false  //false：关闭生成sourceMap功能
+            // sourceMap: false  //false：关闭生成sourceMap功能
         }));
     }
     
@@ -135,20 +135,20 @@ module.exports = function(options) {
                             optimizationLevel: 3, pngquant:{quality: "65-80", speed: 4}}',
                         // url-loader更好用，小于10KB的图片会自动转成dataUrl，
                         // 否则则调用file-loader，参数直接传入
-                        'url?limit=10000&name=[path][hash:8].[name].[ext]&context=media',
+                        'url?limit=10000&name=[path][hash:8].[name].[ext]&context=media'
                     ]
                 },
                 {
                     test: /\.(woff|eot|ttf)$/i,
                     loader: 'url?limit=10000&name=[path][hash:8].[name].[ext]&context=media'
                 },
-                //{test: /\.(tpl|ejs)$/, loader: 'ejs'},
+                // {test: /\.(tpl|ejs)$/, loader: 'ejs'},
                 {test: /\.tpl/, loader: 'html'},
-                //{test: /\.json/, loader: 'json'},
+                // {test: /\.json/, loader: 'json'},
                 {test: /\.css$/, loader: cssLoader},
                 {test: /\.scss$/, loader: scssLoader}
-                //require后才能暴露到全局
-                //{test: /jquery\.min\.js$/, loader: 'expose?jQuery'}
+                // require后才能暴露到全局
+                // {test: /jquery\.min\.js$/, loader: 'expose?jQuery'}
             ]
         },
         sassLoader: {
@@ -182,18 +182,18 @@ module.exports = function(options) {
                 colors: true
             },
             proxy: {
-              //拦截api到本地请求代理地址
-              '/api/*': {
+                // 拦截api到本地请求代理地址
+                '/api/*': {
                     target: {
                         "host": "study.dev",
                         "protocol": 'http:',
                         "port": 80,
                         "path": '/webpack/'
                     },
-                    //ignorePath: true,
+                    // ignorePath: true,
                     changeOrigin: true,
                     secure: false
-              }
+                }
             }
         }
     };
@@ -202,4 +202,4 @@ module.exports = function(options) {
     }
     
     return config;
-}
+};
