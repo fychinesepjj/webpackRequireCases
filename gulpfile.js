@@ -8,16 +8,16 @@ var assets = process.cwd() + '/assets';
 
 // clean assets
 gulp.task('clean', [], function() {
-    var clean = require('gulp-clean')
-    return gulp.src(assets, {read: true}).pipe(clean())
+    var clean = require('gulp-clean');
+    return gulp.src(assets, {read: true}).pipe(clean());
 });
 
 // run webpack pack
 gulp.task('pack', ['clean'], function(done) {
-    webpack(webpackConf, (err, stats) => {
-        if(err) throw new gutil.PluginError('webpack', err)
-        gutil.log('[webpack]', stats.toString({colors: true}))
-        done()
+    webpack(webpackConf, function(err, stats) {
+        if(err) throw new gutil.PluginError('webpack', err);
+        gutil.log('[webpack]', stats.toString({colors: true}));
+        done();
     });
 });
 
@@ -37,7 +37,7 @@ gulp.task('default', ['pack'], function() {
 
 // deploy assets to remote server
 gulp.task('deploy', function() {
-    var sftp = require('gulp-sftp')
+    var sftp = require('gulp-sftp');
 
     return gulp.src(assets + '/**')
         .pipe(sftp({
