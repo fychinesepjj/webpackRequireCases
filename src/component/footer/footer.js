@@ -1,4 +1,5 @@
 module.exports = function (){
+    require('__JS__/utils');
     require('./footer.scss');
     var template = require('template');
     var source = require('./footer.tpl');
