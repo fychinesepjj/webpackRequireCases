@@ -27,7 +27,7 @@ $(function () {
      * 因此建议如果在require.ensure中再次使用异步加载方法时，应优先考虑使用预加载处理
      * 其他方法如require.include('xxxx')与require.ensure(['xxxx'])实现几乎一致，具体可参考webpack官方文档
      */
-    // 初始化加载顺序precache_async_require.js -> parent.trunk.js
+    // 初始化加载precache_async_require.js -> parent.trunk.js
     // load_header event -> children1.trunk.js 加载
     // load_footer event -> children2.trunk.js 加载
     // require.ensure(['__JS__/utils', '__COMP__/header/header'], function(require) {    // parent.trunk.js
@@ -57,7 +57,7 @@ $(function () {
      * 对比上述例子发现，通过同步require加载文件的方法，避免了外部require.ensure的重复包裹，减少了一个trunk包（parent.trunk.js）
      * 预加载的内容从parent.trunk.js被提前到precache_async_require.js文件中
      */
-    // 初始化加载顺序precache_async_require.js
+    // 初始化加载precache_async_require.js
     // load_header event -> children1.trunk.js 加载
     // load_footer event -> children2.trunk.js 加载
 
