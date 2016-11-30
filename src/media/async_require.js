@@ -1,7 +1,8 @@
 
 $(function () {
     /** 
-     *require.ensure每次调用会产生一次分割，此例中由于有两次调用require.ensure，因此会生成两个trunk: A.trunk.js , B.trunk.js
+    * require.ensure每次调用会产生一次分割，
+    * 此例中由于有两次调用require.ensure，因此会产生两个trunk: A.trunk.js , B.trunk.js
     */
     // 分割成A.trunk.js
     $('#init_header').on('click', function() {
@@ -26,7 +27,9 @@ $(function () {
     });
 
     /** 
-     * 不管require.ensure是否有预加载参数，在function回调中如果多次执行require请求，所有包会被打包到一个trunk中如1.ef134ae.js
+    * 不管require.ensure是否有预加载参数，
+    * 在回调function中如果多次执行require，如对header,footer的require请求
+    * 那么这些文件都会被打包到一个单独的trunk中如 [1.ef134ae.js] 文件
     */
     // require.ensure([], function(require) {
     //     $('#load_header').on('click', function() {
@@ -41,8 +44,8 @@ $(function () {
     // });
 
     /**
-     * 效果如上例
-     */
+    * 另一种写法，效果如上所述
+    */
     // require.ensure(['__COMP__/header/header', '__COMP__/footer/footer'], function(require) {
     //     $('#load_header').on('click', function() {
     //         var headerStr = require('__COMP__/header/header');
