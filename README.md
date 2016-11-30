@@ -25,7 +25,7 @@ $(function () {
 
 ### `async_require.js` 关于require.ensure, require(['a'],function(a){})等异步方法的分析
 
-*Example 1:*
+**Example 1:**
 
 ```javascript
 /** 
@@ -56,7 +56,7 @@ $('#init_footer').on('click', function() {
 });
 ```
 
-*Example 2:*
+**Example 2:**
 
 ```javascript
 /** 
@@ -92,9 +92,8 @@ require.ensure(['__COMP__/header/header', '__COMP__/footer/footer'], function(re
 });
 
 ```
-需要说明的是，在webpack中除了`require.ensure`方法可以对代码进行分割，并异步加载外，`require(['a.js'], function(a){})`方法同样可以实现此类功能，
-除了用法不同，它还更强大一些，实现了对变量拼接的支持，后续会有更多讲解。
-`Example 1`代码用另一种写法：
+需要说明的是，在webpack中除了`require.ensure`方法可以对代码进行分割，并异步加载外，`require(['a.js'], function(a){})`方法同样可以实现此类功能，除了用法不同，它还更强大一些，实现了对变量拼接的支持，后续会有更多讲解。
+*Example 1*代码用另一种写法：
 
 ```javascript
 /**
