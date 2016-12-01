@@ -1,7 +1,7 @@
 {
   "name": "webpack_require_case",
   "version": "0.0.1",
-  "description": "webpack require cases analysis",
+  "description": "webpack require function cases analysis",
   "main": "./src/index.html",
   "scripts": {
     "build": "gulp",
